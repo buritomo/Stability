@@ -1,28 +1,33 @@
-## Copyright (C) 2019 tomohiro
-## 
-## This program is free software: you can redistribute it and/or modify it
-## under the terms of the GNU General Public License as published by
-## the Free Software Foundation, either version 3 of the License, or
-## (at your option) any later version.
-## 
-## This program is distributed in the hope that it will be useful, but
-## WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-## GNU General Public License for more details.
-## 
-## You should have received a copy of the GNU General Public License
-## along with this program.  If not, see
-## <https://www.gnu.org/licenses/>.
+#関数定義
+input.m;
+Lateral.m;
+Longitudinal.m;
 
-## -*- texinfo -*- 
-## @deftypefn {} {@var{retval} =} main (@var{input1}, @var{input2})
-##
-## @seealso{}
-## @end deftypefn
+## 機体基本データ入力
+speed = 7.6;
+Math = 93.7;
+span = 29.5;
+cbar = 0.955;
+Tzero = 25.4;
+S = 27.48375;
+CL = 1.045;
+CD = 0.020;
+Asp = aspect(span, S);
 
-## Author: tomohiro <tomohiro@DESKTOP-H0AH0HQ>
-## Created: 2019-10-15
+Le = 4.3;
+Se = 2.406;
+Ve = TailVolume(Le, Se, S, cbar);
+Lv = 5.25;
+Sv = 2.239;
+Vv = TailVolume(Lv, Sv. S. span);
 
-function retval = main (input1, input2)
+CogX = 1.3691;
+CogY = 0;
+CogZ = -0.8047;
 
-endfunction
+Ibxx = 1030;
+Ibyy = 92.21;
+Ibzz = 1035;
+Ibxz = -16.03;
+
+row = 1.165;
