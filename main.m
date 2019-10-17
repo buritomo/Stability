@@ -1,9 +1,9 @@
-#関数定義
+% define functions
 input;
-%Lateral;
+Lateral;
 Longitudinal;
 
-## 機体基本�タ入�
+%% define constants
 speed = 7.6;
 Math = 93.7;
 span = 29.5;
@@ -11,28 +11,70 @@ cbar = 0.955;
 Tzero = 25.4;
 S = 27.48375;
 CL = 1.045;
-CD = 0.020;
+CD = 0.022;
 T0 = 25.4;
 aw = 0.5;
+a0 = 6.133;
 Asp = aspect(span, S);
-e = 0.8;
-dEps = calcDEpsRate(aw, asp);
+e = 0.95;
+dEps = calcDEpsRate(aw, Asp);
+ramda = 0.563;
+gamma = 9.03 * pi / 180;
+yeta = -0.171 * pi / 180;
+
+Cog_Z = -0.78;
 
 Le = 4.3;
 Se = 2.406;
 Ve = TailVolume(Le, Se, S, cbar);
-at - 0.5;
+ae = 0.5;
+
 Lv = 5.25;
 Sv = 2.239;
-Vv = TailVolume(Lv, Sv. S. span);
+Vv = TailVolume(Lv, Sv, S, span);
+av = 0.5;
+zfr = 0.85 - Cog_Z;
 
-CogX = 1.3691;
-CogY = 0;
-CogZ = -0.8047;
+Vfus = 0.5;
 
-Ibxx = 1030;
-Ibyy = 92.21;
-Ibzz = 1035;
-Ibxz = -16.03;
+h = 0.25; %air center: 25%M.A.C.
+hnw = 0.25;  %Cog:36%M.A.C.
 
 row = 1.165;
+
+ans = zeros(32, 1);
+
+% calcurate Lengitudinal part
+
+CLa = calcCLalpha (aw, S, ae, Se, dEps);
+
+ans(1, 1) = calcCxu(row, speed, S, T0, CD);
+ans(2, 1) = calcCzu();
+ans(3, 1) = calcCmu();
+ans(4, 1) = calcCxa(CL, CLa, e, Asp);
+ans(5, 1) = calcCza(CLa);
+ans(6, 1) = CLa;
+ans(7, 1) = calcCmalpha(CLa, h, hnw, ae, dEps, Ve, Vfus); 
+ans(8, 1) = calcCmadot(Ve, Le, cbar, ae, dEps);
+ans(9, 1) = calcCzq(Ve, ae);
+ans(10,1) = calcCmq(Ve, Le, cbar, ae);
+ans(11,1) = calcCzde(Se, S, ae);
+ans(12,1) = calcCmde(Se, S, ae);
+ans(13,1) = 0;%make a space
+
+% calcurate Lateral part
+ans(14,1) = calcCyb(Sv, S, av);
+ans(15,1) = calcClb(ramda, a0, gamma, CL, yeta);
+ans(16,1) = calcCnb(Vv, av, Vfus, cbar, span);
+ans(17,1) = calcCnb(Vv, av, Vfus, cbar, span);
+ans(18,1) = calcCyp();
+ans(19,1) = calcClp(a0, ramda);
+ans(20,1) = calcCnp(ramda, CLa, e, Asp, CL);
+ans(21,1) = calcCyr(Sv, S, av, Lv, span);
+ans(22,1) = calcClr(ramda, CL, zfr, span, Lv, S, av);
+ans(23,1) = calcCnr(ramda, CD, Vv, av, Lv, span);
+ans(24,1) = calcCydr(Sv, S, av);
+ans(25,1) = calcCldr(zfr, span, Sv, S, av);
+ans(26,1) = calcCndr(Vv, av);
+
+csvwrite('results.csv', ans);
