@@ -66,16 +66,15 @@ ans(13,1) = 0;%make a space
 ans(14,1) = calcCyb(Sv, S, av);
 ans(15,1) = calcClb(ramda, a0, gamma, CL, yeta);
 ans(16,1) = calcCnb(Vv, av, Vfus, cbar, span);
-ans(17,1) = calcCnb(Vv, av, Vfus, cbar, span);
-ans(18,1) = calcCyp();
-ans(19,1) = calcClp(a0, ramda);
-ans(20,1) = calcCnp(ramda, CLa, e, Asp, CL);
-ans(21,1) = calcCyr(Sv, S, av, Lv, span);
-ans(22,1) = calcClr(ramda, CL, zfr, span, Lv, S, av);
-ans(23,1) = calcCnr(ramda, CD, Vv, av, Lv, span);
-ans(24,1) = calcCydr(Sv, S, av);
-ans(25,1) = calcCldr(zfr, span, Sv, S, av);
-ans(26,1) = calcCndr(Vv, av);
+ans(17,1) = calcCyp();
+ans(18,1) = calcClp(a0, ramda);
+ans(19,1) = calcCnp(ramda, CLa, e, Asp, CL);
+ans(20,1) = calcCyr(Sv, S, av, Lv, span);
+ans(21,1) = calcClr(ramda, CL, zfr, span, Lv, S, av);
+ans(22,1) = calcCnr(ramda, CD, Vv, av, Lv, span);
+ans(23,1) = calcCydr(Sv, S, av);
+ans(24,1) = calcCldr(zfr, span, Sv, S, av);
+ans(25,1) = calcCndr(Vv, av);
 
 % export results
 csvwrite('results.csv', ans);
