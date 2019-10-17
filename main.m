@@ -10,10 +10,10 @@ span = 29.5;
 cbar = 0.955;
 Tzero = 25.4;
 S = 27.48375;
-CL = 1.045;
-CD = 0.022;
+CL = 1.035;
+CD = 0.021;
 T0 = 25.4;
-aw = 0.5;
+aw = 6.026;
 a0 = 6.133;
 Asp = aspect(span, S);
 e = 0.95;
@@ -27,18 +27,18 @@ Cog_Z = -0.78;
 Le = 4.3;
 Se = 2.406;
 Ve = TailVolume(Le, Se, S, cbar);
-ae = 0.5;
+ae = 5.844;
 
 Lv = 5.25;
 Sv = 2.239;
 Vv = TailVolume(Lv, Sv, S, span);
-av = 0.5;
-zfr = 0.85 - Cog_Z;
+av = 5.844;
+zfr = 0.875 - Cog_Z;
 
 Vfus = 0.5;
 
 h = 0.25; %air center: 25%M.A.C.
-hnw = 0.25;  %Cog:36%M.A.C.
+hnw = 0.36;  %Cog:36%M.A.C.
 
 row = 1.165;
 
@@ -77,4 +77,5 @@ ans(24,1) = calcCydr(Sv, S, av);
 ans(25,1) = calcCldr(zfr, span, Sv, S, av);
 ans(26,1) = calcCndr(Vv, av);
 
+% export results
 csvwrite('results.csv', ans);
