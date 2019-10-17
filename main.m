@@ -1,7 +1,7 @@
 #関数定義
-input.m;
-Lateral.m;
-Longitudinal.m;
+input;
+%Lateral;
+Longitudinal;
 
 ## 機体基本�タ入�
 speed = 7.6;
@@ -15,6 +15,8 @@ CD = 0.020;
 T0 = 25.4;
 aw = 0.5;
 Asp = aspect(span, S);
+e = 0.8;
+dEps = calcDEpsRate(aw, asp);
 
 Le = 4.3;
 Se = 2.406;
