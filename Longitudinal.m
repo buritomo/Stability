@@ -4,52 +4,52 @@ abc = 2;
 function Cxu = calcCxu(row, U0, S, T0, Cd)
   Cxu = -1 * 2 * T0 / row / U0 / S / U0;
   Cxu = Cxu - 2 * (Cd);
-endfunction
+end
 
 function CLalpha = calcCLalpha (aw, S, at, St, dEps)
   CLalpha = at / aw * St / S * (1 - dEps);
   CLalpha = CLalpha + 1; 
   CLalpha = CLalpha * aw;  
-endfunction
+end
 
 function Cmalpha = calcCmalpha(CLa, h, hnw, at, dEps, Ve, Vfus)
   Cmalpha = at * (1 - dEps) * Ve - 2 * Vfus;
-  Cmalpha = Cmalpha * (-1) / CLa + h;
+  Cmalpha = Cmalpha * (-1) / CLa - hnw + h;
   Cmalpha = Cmalpha * CLa;
-endfunction
+end
 
 function Cxa = calcCxa(CL, CLa, e, asp)
   Cxa = CL * (1 - 2 * CLa / (pi * e * asp));
-endfunction
+end
 
 function Cza = calcCza(CLa)
   Cza = -1 * CLa;
-endfunction
+end
 
 function Cmde = calcCmde(Ve, at)
   Cmde = -1 * Ve * at;
-endfunction
+end
 
 function Czde = calcCzde(St, S, at)
   Czde = -1 * St / S * at;
-endfunction
+end
 
 function Cmq = calcCmq (Ve, lt, cbar, at)
   Cmq = -2 * Ve * lt / cbar * at;
-endfunction
+end
 
 function Czq = calcCzq(Ve, at)
   Czq = -2 * Ve * at;
-endfunction
+end
 
 function Cmadot = calcCmadot(Ve, lt, cbar, at, dEps)
   Cmadot = -2 * Ve * lt / cbar * at * dEps;
-endfunction
+end
 
 function Czu = calcCzu()
   Czu = 0;
-endfunction
+end
 
 function Cmu = calcCmu()
   Cmu = 0;
-endfunction
+end
