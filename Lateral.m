@@ -3,54 +3,54 @@ abc = 3;
 
 function Cyb = calcCyb(Sf, S, afin)
   Cyb = -1 * Sf / S * afin;
-endfunction
+end
 
 function Clb = calcClb(ramda, a0, gamma, Cl, yeta)
   Clbino = -0.006;
   Clb = a0 * gamma + Cl * tan(yeta);
   Clb = Clb * (-1 / 6) * (1 + 2 * ramda) / (1 + ramda);
   Clb = Clb + Clbino;
-endfunction
+end
 
 function Cnb = calcCnb(Vfin, afin, Vfus, cbar, b)
   Cnb = Vfin * afin - 2 * Vfus * cbar / b;  
-endfunction
+end
 
 function Cyp = calcCyp()
   Cyp = 0;  
-endfunction
+end
 
 function Clp = calcClp(a0, ramda)
   Clp = -1 * a0 / 12 * (1 + 3 * ramda) / (1 + ramda);  
-endfunction
+end
 
 function Cnp = calcCnp(ramda, Cla, e, asp, CL)
   Cnp = -1 / 12 * (1 + 3 * ramda) / (1 + ramda);
-  Cnp = Cnp * (1 - Cla / (pi * e * asp))* CL;
-endfunction
+  Cnp = Cnp * (1 - 2 * Cla / (pi * e * asp))* CL;
+end
 
 function Cyr = calcCyr(Sf, S, afin, lf, b)
   Cyr = Sf/ S * afin * 2 * lf / b;
-endfunction
+end
 
 function Clr = calcClr(ramda, Cl, zfr, b, lf, S, afin)
   Clr = 1 / 6 * (1 + 3 * ramda) / (1 + ramda) * Cl;
   Clr = Clr + zfr / b * lf / S * afin * 2 * lf / b;
-endfunction
+end
 
 function Cnr = calcCnr(ramda, CD, Vfin, afin, lf, b)
   Cnr = -1 * 6 * (1 + 3 * ramda) / (1 + ramda) * CD;
   Cnr = Cnr - Vfin * afin * 2 * lf / b;
-endfunction
+end
 
 function Cydr = calcCydr(Sf, S, afin)
   Cydr = Sf / S * afin;
-endfunction
+end
 
 function Cldr = calcCldr(zfr, b, Sf, S, afin)
   Cldr = zfr / b * Sf / S * afin;
-endfunction
+end
 
 function Cndr = calcCndr(Vfin, afin)
   Cndr = -1 * Vfin * afin;
-endfunction
+end
