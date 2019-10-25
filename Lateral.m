@@ -33,13 +33,13 @@ function Cyr = calcCyr(Sf, S, afin, lf, b)
   Cyr = Sf/ S * afin * 2 * lf / b;
 end
 
-function Clr = calcClr(ramda, Cl, zfr, b, lf, S, afin)
+function Clr = calcClr(ramda, Cl, zfr, b, lf, Sf, S, afin)
   Clr = 1 / 6 * (1 + 3 * ramda) / (1 + ramda) * Cl;
-  Clr = Clr + zfr / b * lf / S * afin * 2 * lf / b;
+  Clr = Clr + zfr * Sf / b / S * afin * 2 * lf / b;
 end
 
 function Cnr = calcCnr(ramda, CD, Vfin, afin, lf, b)
-  Cnr = -1 * 6 * (1 + 3 * ramda) / (1 + ramda) * CD;
+  Cnr = -1 / 6 * (1 + 3 * ramda) / (1 + ramda) * CD;
   Cnr = Cnr - Vfin * afin * 2 * lf / b;
 end
 
