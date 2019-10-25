@@ -59,7 +59,7 @@ results(8, 1) = calcCmadot(Ve, Le, cbar, ae, dEps);
 results(9, 1) = calcCzq(Ve, ae);
 results(10,1) = calcCmq(Ve, Le, cbar, ae);
 results(11,1) = calcCzde(Se, S, ae);
-results(12,1) = calcCmde(Se, ae);
+results(12,1) = calcCmde(Ve, ae);
 results(13,1) = 0;%make a space
 
 % calcurate Lateral part
@@ -70,7 +70,7 @@ results(17,1) = calcCyp();
 results(18,1) = calcClp(a0, ramda);
 results(19,1) = calcCnp(ramda, CLa, e, Asp, CL);
 results(20,1) = calcCyr(Sv, S, av, Lv, span);
-results(21,1) = calcClr(ramda, CL, zfr, span, Lv, S, av);
+results(21,1) = calcClr(ramda, CL, zfr, span, Lv, Sv, S, av);
 results(22,1) = calcCnr(ramda, CD, Vv, av, Lv, span);
 results(23,1) = calcCydr(Sv, S, av);
 results(24,1) = calcCldr(zfr, span, Sv, S, av);
